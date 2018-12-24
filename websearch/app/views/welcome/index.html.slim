@@ -1,0 +1,17 @@
+h1 Search
+div.search_block
+    form
+    	input type="text" name="search"
+    	input type="submit"
+- @jresp.each do |item|
+	br   	
+	div.block
+		p = "Title: " + item["title"]
+		p = "Author: " + (item["author"]? item["author"] : '-')
+		p = "Description: " + item["description"]
+		p = "Published at: " + item["publish_at"]
+		- if item["url_to_image"]
+			img src="#{item["url_to_image"]}"/
+		- if item["url"]
+			br
+			a href="#{item["url"]}" style="color: blue !important" More...
